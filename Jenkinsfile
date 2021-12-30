@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'devopsdeepdive2', url: 'https://github.com/devopsdeepdive/maven-web-project.git']]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'git', url: 'https://github.com/ADPrasad009/pipeline_deploy.git']]])
             }
         }
          stage('Build') {
@@ -17,11 +17,11 @@ pipeline {
                 bat 'mvn clean package'
         }
     }
-     /*  stage('Test') {
+       stage('Test') {
             steps {
                 bat 'mvn test'
         }
-    } */
+    } 
          stage('Deploy') {
             steps {
                 bat 'mvn install tomcat7:deploy'
@@ -29,8 +29,7 @@ pipeline {
     }
      stage('Notification') {
             steps {
-                slackSend channel: '#pipeline-jobs', color: 'good', iconEmoji: ':with:grin:', message: 'Build is succesful and deployed', tokenCredentialId: 'slack'
-        }
+                slackSend channel: '#jenkins_pipeline.', color: 'good', message: 'Build is succesful', tokenCredentialId: 'slacknotification'
     }
 }
 }
