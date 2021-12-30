@@ -97,7 +97,7 @@
 	
 	    <repository>
 	      <id>nexus</id>
-	      <name>devopsdeepdive Releases Nexus Repository</name>
+	      <name>ADPrasad009 Releases Nexus Repository</name>
 	      <url>http://127.0.0.1:8081/repository/maven-web-project/</url>
 	    </repository>
 	    
@@ -132,7 +132,7 @@
 					<configuration>
 						<!-- context root for Java web apps -->
 						<server>tomcat-user</server>
-						<url>http://localhost:8081/manager/text</url>
+						<url>http://localhost:8082/manager/text</url>
 						<path>/mavenwebapplication</path>
 					</configuration>
 
